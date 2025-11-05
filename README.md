@@ -17,5 +17,3 @@ Há necessidade de escalar leituras e simplificar arquivamento e manutenção me
 ### Tabela `reproducoes`
 - Tipo: `PARTITION BY RANGE (data_reproducao)` (granularidade mensal).
 - Motivo: maior volume e consultas por período. O particionamento por mês melhora agregações por tempo e permite arquivar facilmente meses antigos. LIST por categoria não atende à necessidade principal, que é tempo.
-
-## Estrutura do Repositório
