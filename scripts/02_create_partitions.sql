@@ -1,16 +1,15 @@
-CREATE TABLE usuarios (
-  id_usuario     BIGINT,
-  nome           VARCHAR(100) NOT NULL,
-  pais           VARCHAR(50)  NOT NULL,
-  data_cadastro  DATE         NOT NULL,
-  plano          VARCHAR(20)  NOT NULL
-) PARTITION BY RANGE (data_cadastro);
+CREATE TABLE usuarios_2024
+  PARTITION OF usuarios
+  FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');
 
+CREATE TABLE usuarios_2025
+  PARTITION OF usuarios
+  FOR VALUES FROM ('2025-01-01') TO ('2026-01-01');
 
-CREATE TABLE reproducoes (
-  id_reproducao     BIGINT,
-  id_usuario        BIGINT      NOT NULL, 
-  data_reproducao   DATE        NOT NULL,
-  duracao_segundos  INT         NOT NULL,
-  categoria         VARCHAR(50) NOT NULL
-) PARTITION BY RANGE (data_reproducao);
+CREATE TABLE reproducoes_2025_09
+  PARTITION OF reproducoes
+  FOR VALUES FROM ('2025-09-01') TO ('2025-10-01');
+
+CREATE TABLE reproducoes_2025_10
+  PARTITION OF reproducoes
+  FOR VALUES FROM ('2025-10-01') TO ('2025-11-01');
