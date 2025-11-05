@@ -4,7 +4,7 @@ CREATE TABLE usuarios (
   pais           VARCHAR(50)  NOT NULL,
   data_cadastro  DATE         NOT NULL,
   plano          VARCHAR(20)  NOT NULL
-) PARTITION BY RANGE (data_cadastro);
+);
 
 
 CREATE TABLE reproducoes (
@@ -13,4 +13,4 @@ CREATE TABLE reproducoes (
   data_reproducao   DATE        NOT NULL,
   duracao_segundos  INT         NOT NULL,
   categoria         VARCHAR(50) NOT NULL
-) PARTITION BY RANGE (data_reproducao);
+);
